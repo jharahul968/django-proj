@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo</title>
+</head>
+<body>
+    <h1>To Do List</h1>
+    <ul>
+        {%for i in todo %}
+        <div style="display: flex;">
+        <li>{{i}}</li> <button><a href="{%url 'todo:dlt' i.id %}">x</a></button></div>
+        {%empty %}
+        <li>No tasks to do</li>
+        {%endfor%}
+    </ul>
+    <a href="{%url 'todo:add' %}">Add Tasks</button>
+</body>
+</html>
